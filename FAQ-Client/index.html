@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FAQ Site Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+       
 </head>
 <body>
-    <h1>Hello test</h1>
+    <div class="signup-section">
+        <div class="page-title">Login to FAQ Access</div>
+        
+        
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="email" class="input-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="input-label">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required>
+            </div>
+            
+            <button type="submit" class="submit-button">Log In</button>
+        </form>
+        
+        <div class="login-text">
+            Don't have an account? <a href="sign-up.html" class="login-link">Sign Up</a>
+        </div>
+    </div>
+
 </body>
 </html>
