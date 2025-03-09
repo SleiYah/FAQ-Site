@@ -44,7 +44,7 @@ faqPages.loadFor = function(page_name){
     eval("faqPages.load_" + page_name + "();");
 }
 
-faqPages.load_index = async function(){
+faqPages.load_index = function(){
 
     console.log("login page loaded");
     
