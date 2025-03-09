@@ -33,7 +33,8 @@ class User {
     }
     public function update($userData) {
         $user = new UserSkeleton();
-        $user->getId($userData['user_id']);
+        
+        $user->setId($userData['user_id']);
         $user->setFirstName($userData['first_name']);
         $user->setLastName($userData['last_name']);
         $user->setEmail($userData['email']);
@@ -47,9 +48,9 @@ class User {
     }
     
     public function delete($userData) {
-        $user = new UserSkeleton();
-        $user->getId($userData['user_id']);
-        
+        $user = new UserSkeleton();     
+        $user->setFirstName($userData['user_id']);
+   
         $query = "DELETE FROM users WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $user->getId());

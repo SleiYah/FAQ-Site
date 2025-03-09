@@ -5,7 +5,8 @@ class UserSkeleton {
     protected $last_name;
     protected $email;
     protected $password;
-
+    
+    public function setId($id) { $this->id = $id; }
     public function setFirstName($first_name) { $this->first_name = $first_name; }
     public function setLastName($last_name) { $this->last_name = $last_name; }
 
