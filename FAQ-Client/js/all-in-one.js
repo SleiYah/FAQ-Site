@@ -249,7 +249,38 @@ if (logoutButton) {
             }
         });
     };
-
+    faqPages.load_sign_up = function(){
+        console.log("sign-up page loaded");
+        
+        const signupForm = document.getElementById('signupForm');
+        
+        signupForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const userData = {
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+            
+            try {
+                const response = await faqPages.post_data(faqPages.base_api + 'sign-up.php', userData);
+                
+                if (response.status) {
+                    showMessage(response.message, 'success');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                } else {
+                    showMessage(response.message, 'error');
+                }
+            } catch (error) {
+                console.error('Error during sign-up:', error);
+                showMessage('An error occurred during sign-up. Please try again.', 'error');
+            }
+        });
+    }
 faqPages.logout = function() {
     localStorage.removeItem('userId');
     localStorage.removeItem('userEmail');
