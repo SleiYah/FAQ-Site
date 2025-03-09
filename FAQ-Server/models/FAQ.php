@@ -1,5 +1,5 @@
 <?php
-
+include("FAQSkeleton.php");
 class FAQ {
     private $conn;
     
