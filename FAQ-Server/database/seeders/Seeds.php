@@ -1,8 +1,8 @@
 <?php
-include(__DIR__ ."../../connection/conn.php");
+include(__DIR__ ."../../../connection/conn.php");
 
-include("faq-seeds.php");
-include("user-seeds.php");
+include(__DIR__ . "faq-seeds.php");
+include(__DIR__ . "user-seeds.php");
 
 class Seeds {
     public static function seedAll($conn) {
