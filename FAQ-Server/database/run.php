@@ -1,5 +1,5 @@
 <?php
-
+include(__DIR__ . "../../connection/conn.php");
 echo "Starting database setup...\n";
 
 echo "\n== Running Migrations ==\n";
