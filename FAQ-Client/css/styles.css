@@ -16,7 +16,9 @@ body {
 
 }
 
-
+.block{
+    display: block
+}
 
 .signup-section {
     align-items: center;
@@ -31,18 +33,21 @@ body {
     font-weight: normal;
     text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.8);
 }
-.signup-form {
+
+form{
     text-align: left;
 }
-.form-group {
+form >div {
     margin-bottom: 1.25rem;
+
 }
-.input-label {
+form >div > label{
     margin-bottom: 0.5rem;
     font-size: 1rem;
     color: #5c4b34;
+
 }
-.form-input {
+form >div > input{
     width: 100%;
     padding: 0.75rem;
     box-sizing: border-box;
@@ -52,7 +57,8 @@ body {
     font-size: 1rem;
     color: #5c4b34;
 }
-.submit-button {
+   
+button {
     width: 100%;
     padding: 0.75rem;
     background-color: #8b7d65;
@@ -63,7 +69,7 @@ body {
     font-family: 'Georgia', serif;
     font-size: 1rem;
 }
-.submit-button:hover {
+button:hover {
     background-color: #6a5e4c;
 }
 .login-text {
@@ -80,3 +86,140 @@ body {
     text-decoration: underline;
 }
 /*  */
+
+header {
+    background-color: #8b7d65;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-title{
+    font-size: 1.75rem;
+
+}
+
+
+.content-section {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section-title {
+    color: #5c4b34;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+.search-section {
+    margin-bottom: 1.5rem;
+}
+
+.search-container {
+    display: flex;
+    max-width: 30rem;
+    margin: 0 auto;
+    justify-content: center;
+
+}
+
+.search-input {
+    padding: 0.75rem;
+    border: 1px solid #d3c6a6;
+    border-right: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+    background-color: #fffcf5;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    color: #5c4b34;
+}
+
+
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #8b7d65;
+    color: #fff;
+    border: none;
+    border-radius: 0 0.25rem 0.25rem 0;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    width: 20%;
+}
+
+.search-button:hover {
+    background-color: #6a5e4c;
+}
+
+.add-faq-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.add-button {
+    background-color: #8b7d65;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.add-button:hover {
+    background-color: #6a5e4c;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-card {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+
+.faq-question {
+    background-color: #e6ded0;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    color: #5c4b34;
+    font-size: 1.125rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.faq-answer {
+    padding: 1.5rem;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 0.0625rem solid #d3c6a6;
+    border-radius: 0.25rem;
+    background-color: #fffcf5;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    color: #5c4b34;
+    min-height: 15rem;
+    resize: vertical;
+    line-height: 1.6;
+}

@@ -1,44 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ Site Sign-up</title>
-   <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
     <div class="signup-section">
-        <div class="page-title">Sign Up for FAQ Access</div>
-        
-        
-        <form id="signupForm" class="signup-form">
-            <div class="form-group">
-                <label for="firstName" class="input-label">First Name</label>
-                <input type="text" id="firstName" name="first_name" class="form-input" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="lastName" class="input-label">Last Name</label>
-                <input type="text" id="lastName" name="last_name" class="form-input" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email" class="input-label">Email Address</label>
-                <input type="email" id="email" name="email" class="form-input" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password" class="input-label">Password</label>
-                <input type="password" id="password" name="password" class="form-input" required>
-            </div>
-            
-            <button type="submit" class="submit-button">Sign Up</button>
-        </form>
-        
-        <div class="login-text">
-            Already have an account? <a href="index.html" class="login-link">Log In</a>
-        </div>
-    </div>
+      <h1 class="page-title">Sign Up for FAQ Access</h1>
 
-</body>
+      <form id="signupForm" >
+        <div>
+          <label for="firstName" >First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="first_name"
+            
+            required
+          />
+        </div>
+
+        <div>
+          <label for="lastName" >Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="last_name"
+            
+            required
+          />
+        </div>
+
+        <div>
+          <label for="email" >Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            
+            required
+          />
+        </div>
+
+        <div>
+          <label for="password" >Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            
+            required
+          />
+        </div>
+
+        <button type="submit" >Sign Up</button>
+      </form>
+
+      <div class="login-text">
+        Already have an account?
+        <a href="index.html" class="login-link">Log In</a>
+      </div>
+    </div>
+  </body>
 </html>
