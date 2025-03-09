@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 questionInput.value = '';
                 answerInput.value = '';
                 
-                // setTimeout(() => {
-                //     window.location.href = 'home.html';
-                // }, 2000);
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 2000);
             } else {
                 showMessage(response.data.message, 'error');
             }
