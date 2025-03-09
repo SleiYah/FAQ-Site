@@ -6,7 +6,7 @@ echo "\n== Running Migrations ==\n";
 include(__DIR__. "../../database/migrations/Migrate.php");
 
 echo "\n== Running Seeds ==\n";
-include(__DIR__. "../../database/seeders");
+include(__DIR__. "../../database/Seeds.php");
 
 echo "\nSetup completed successfully!\n";
 
