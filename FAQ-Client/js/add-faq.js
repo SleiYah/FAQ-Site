@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 answerInput.value = '';
                 
                 setTimeout(() => {
-                    window.location.href = 'home.html';
+                    window.location.replace('home.html');
                 }, 2000);
             } else {
                 showMessage(response.data.message, 'error');
