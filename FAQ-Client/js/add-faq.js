@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Add FAQ page loaded");
-    
+    const logoutBtn = document.getElementById('logout-button');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            logout();
+        });
+    }
     if (!checkAuth()) {
         return; 
     }
     
-    logout();
     
     const faqForm = document.querySelector('.faq-form');
     

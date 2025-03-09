@@ -3,7 +3,12 @@
 // Modified home.js
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Home page loaded");
-    
+    const logoutBtn = document.getElementById('logout-button');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            logout();
+        });
+    }
     async function fetchFAQs() {
         try {
             const getFAQs = async () => {
@@ -30,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return; 
     }
     
-    logout();
     
     const faqListContainer = document.querySelector('.faq-list');
     

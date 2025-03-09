@@ -23,11 +23,6 @@ function showMessage(message, type = 'info') {
 }
 
 function logout() {
-    const logoutButton = document.getElementById('logout-button');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', logout);
-    }
-
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
     localStorage.removeItem('userEmail');
@@ -43,6 +38,7 @@ function logout() {
     redirectAfterDelay();
 }
 
+
 function checkAuth() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (!isLoggedIn || isLoggedIn !== 'true') {
@@ -52,9 +48,4 @@ function checkAuth() {
     return true;
 }
 
-function setupLogout() {
-    const logoutButton = document.getElementById('logout-button');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', logout);
-    }
-}
+
