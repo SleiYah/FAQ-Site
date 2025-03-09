@@ -18,7 +18,7 @@ function showMessage(message, type = 'info') {
   }
 
 const faqPages = {};
-faqPages.base_api = "http://localhost/FAQ-Site/FAQ-Server/apis/v1/";
+faqPages.base_api = "http://51.44.8.213//FAQ-Site/FAQ-Server/apis/v1/";
 
 faqPages.get_data = async function(url){
     try{
