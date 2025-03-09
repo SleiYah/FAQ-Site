@@ -1,4 +1,3 @@
-
 const BASE_API = "/FAQ-Site/FAQ-Server/apis/v1/";
 
 function showMessage(message, type = 'info') {
@@ -12,9 +11,12 @@ function showMessage(message, type = 'info') {
         messageText.textContent = message;
         messageContainer.style.display = 'block';
         
-        setTimeout(function() {
+        const hideMessageAfterDelay = async () => {
+            await new Promise(resolve => setTimeout(resolve, 3000));
             messageContainer.style.display = 'none';
-        }, 3000);
+        };
+        
+        hideMessageAfterDelay();
     } else {
         console.warn('Message container or text element not found in the DOM');
     }
@@ -28,9 +30,12 @@ function logout() {
     
     showMessage('You have been logged out successfully', 'success');
     
-    setTimeout(() => {
+    const redirectAfterDelay = async () => {
+        await new Promise(resolve => setTimeout(resolve, 1500));
         window.location.href = 'index.html';
-    }, 1500);
+    };
+    
+    redirectAfterDelay();
 }
 
 function checkAuth() {
@@ -42,8 +47,7 @@ function checkAuth() {
     return true;
 }
 
-function logout() {
- 
+function setupLogout() {
     const logoutButton = document.getElementById('logout-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', logout);

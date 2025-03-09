@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Sign-up page loaded");
     
@@ -16,16 +15,24 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             try {
-                const response = await axios.post(BASE_API + 'sign-up.php', userData);
+                const registerUser = async () => {
+                    const response = await axios.post(BASE_API + 'sign-up.php', userData);
+                    return response;
+                };
+                
+                const response = await registerUser();
                 
                 if (response.data.status) {
                     showMessage(response.data.message, 'success');
                     
                     signupForm.reset();
                     
-                    setTimeout(() => {
+                    const redirectAfterDelay = async () => {
+                        await new Promise(resolve => setTimeout(resolve, 2000));
                         window.location.href = 'index.html';
-                    }, 2000);
+                    };
+                    
+                    redirectAfterDelay();
                 } else {
                     showMessage(response.data.message, 'error');
                 }

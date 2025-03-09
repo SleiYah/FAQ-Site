@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Login page loaded");
     
@@ -14,7 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             try {
-                const response = await axios.post(BASE_API + 'login.php', loginData);
+                const attemptLogin = async () => {
+                    const response = await axios.post(BASE_API + 'login.php', loginData);
+                    return response;
+                };
+                
+                const response = await attemptLogin();
                 
                 if (response.data.status) {
                     showMessage(response.data.message, 'success');
@@ -24,9 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     localStorage.setItem('userEmail', response.data.user.email);
                     localStorage.setItem('isLoggedIn', 'true');
                     
-                    setTimeout(() => {
+                    const redirectAfterDelay = async () => {
+                        await new Promise(resolve => setTimeout(resolve, 1500));
                         window.location.href = 'home.html';
-                    }, 1500);
+                    };
+                    
+                    redirectAfterDelay();
                 } else {
                     showMessage(response.data.message, 'error');
                 }

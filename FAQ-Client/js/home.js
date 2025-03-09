@@ -1,10 +1,17 @@
 
+
+// Modified home.js
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Home page loaded");
     
     async function fetchFAQs() {
         try {
-            const response = await axios.get(BASE_API + 'get-FAQs.php');
+            const getFAQs = async () => {
+                const response = await axios.get(BASE_API + 'get-FAQs.php');
+                return response;
+            };
+            
+            const response = await getFAQs();
             
             if (response.data.status) {
                 displayFAQs(response.data.data);
@@ -24,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     logout();
-     fetchFAQs();
+    
     const faqListContainer = document.querySelector('.faq-list');
     
     if (!faqListContainer) {
@@ -33,7 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     faqListContainer.innerHTML = '<div class="loading">Loading FAQs...</div>';
-   
+    
+    const initializePage = async () => {
+        await fetchFAQs();
+    };
+    
+    initializePage();
     
     const searchInput = document.querySelector('.search-input');
     const searchButton = document.querySelector('.search-button');
@@ -51,8 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-  
     
     function displayFAQs(faqs) {
         faqListContainer.innerHTML = '';

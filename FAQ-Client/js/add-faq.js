@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Add FAQ page loaded");
     
@@ -6,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return; 
     }
     
-
     logout();
     
     const faqForm = document.querySelector('.faq-form');
@@ -40,7 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         try {
-            const response = await axios.post(BASE_API + 'add-FAQ.php', faqData);
+            const addFAQ = async () => {
+                const response = await axios.post(BASE_API + 'add-FAQ.php', faqData);
+                return response;
+            };
+            
+            const response = await addFAQ();
             
             if (response.data.status) {
                 showMessage(response.data.message, 'success');
@@ -48,9 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 questionInput.value = '';
                 answerInput.value = '';
                 
-                setTimeout(() => {
+                const redirectAfterDelay = async () => {
+                    await new Promise(resolve => setTimeout(resolve, 2000));
                     window.location.replace('home.html');
-                }, 2000);
+                };
+                
+                redirectAfterDelay();
             } else {
                 showMessage(response.data.message, 'error');
             }
