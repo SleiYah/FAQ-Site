@@ -2,12 +2,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Home page loaded");
     
+    async function fetchFAQs() {
+        try {
+            const response = await axios.get(BASE_API + 'get-FAQs.php');
+            
+            if (response.data.status) {
+                displayFAQs(response.data.data);
+            } else {
+                showMessage(response.data.message, 'info');
+                faqListContainer.innerHTML = '<div class="no-faqs">No FAQs available.</div>';
+            }
+        } catch (error) {
+            console.error('Error fetching FAQs:', error);
+            showMessage('Error loading FAQs. Please try again later.', 'error');
+            faqListContainer.innerHTML = '<div class="error">Failed to load FAQs.</div>';
+        }
+    }
+
     if (!checkAuth()) {
         return; 
     }
     
     logout();
-    
+     fetchFAQs();
     const faqListContainer = document.querySelector('.faq-list');
     
     if (!faqListContainer) {
@@ -16,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     faqListContainer.innerHTML = '<div class="loading">Loading FAQs...</div>';
-    
-    fetchFAQs();
+   
     
     const searchInput = document.querySelector('.search-input');
     const searchButton = document.querySelector('.search-button');
@@ -36,22 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    async function fetchFAQs() {
-        try {
-            const response = await axios.get(BASE_API + 'get-FAQs.php');
-            
-            if (response.data.status) {
-                displayFAQs(response.data.data);
-            } else {
-                showMessage(response.data.message, 'info');
-                faqListContainer.innerHTML = '<div class="no-faqs">No FAQs available.</div>';
-            }
-        } catch (error) {
-            console.error('Error fetching FAQs:', error);
-            showMessage('Error loading FAQs. Please try again later.', 'error');
-            faqListContainer.innerHTML = '<div class="error">Failed to load FAQs.</div>';
-        }
-    }
+  
     
     function displayFAQs(faqs) {
         faqListContainer.innerHTML = '';
