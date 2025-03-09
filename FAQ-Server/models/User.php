@@ -15,12 +15,17 @@ class User {
         $user->setEmail($userData['email']);
         $user->setPassword($userData['password']); 
 
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $email = $user->getEmail();
+        $password = $user->getPassword();
+
         $query = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssss", $user->getFirstName(), $user->getLastName(), $user->getEmail(), $user->getPassword());
+        $stmt->bind_param("ssss", $firstName, $lastName, $email, $password);
         $stmt->execute();
         
-        return true;
+        return $stmt->affected_rows > 0;
     }
     
     public function read($email) {
@@ -32,6 +37,7 @@ class User {
         
         return $result->fetch_assoc();
     }
+    
     public function update($userData) {
         $user = new UserSkeleton();
         
@@ -40,24 +46,31 @@ class User {
         $user->setLastName($userData['last_name']);
         $user->setEmail($userData['email']);
         
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $email = $user->getEmail();
+        $id = $user->getId();
+
         $query = "UPDATE users SET first_name = ?, last_name = ?, email = ? WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("sssi", $user->getFirstName(), $user->getLastName(), $user->getEmail(), $user->getId());
+        $stmt->bind_param("sssi", $firstName, $lastName, $email, $id);
         $stmt->execute();
         
-        return true;
+        return $stmt->affected_rows > 0;
     }
     
     public function delete($userData) {
         $user = new UserSkeleton();     
-        $user->setFirstName($userData['user_id']);
+        $user->setId($userData['user_id']);
    
+        $id = $user->getId();
+
         $query = "DELETE FROM users WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $user->getId());
+        $stmt->bind_param("i", $id);
         $stmt->execute();
         
-        return true;
+        return $stmt->affected_rows > 0;
     }
 }
 ?>

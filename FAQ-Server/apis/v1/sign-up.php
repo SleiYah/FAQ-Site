@@ -52,7 +52,7 @@ if($existing_user) {
     exit;
 }
 
-if($user->create($userData)) {
+if($user->create($data)) {
     $response['status'] = true;
     $response['message'] = "User registered successfully";
 } else {

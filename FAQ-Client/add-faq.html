@@ -9,6 +9,9 @@
 <body class="block">
     <header>
         <h1 class="header-title">FAQ Access</h1>
+        <div>
+            <button id="logout-button">Logout</button>
+        </div>
     </header>
     
     <main class="content-section">
@@ -32,5 +35,14 @@
             </div>
         </form>
     </main>
+    <script src="js/axios.min.js"></script>
+    <script src="js/all-in-one.js"></script>
+<script type="text/javascript">
+    faqPages.loadFor("add_faq");
+</script>
+<div id="message-container" class="message-container">
+    <span id="message-text"></span>
+  </div>
 </body>
+
 </html>

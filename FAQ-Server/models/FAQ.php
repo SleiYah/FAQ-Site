@@ -12,9 +12,12 @@ class FAQ {
         $faq->setQuestion($faqData['question']);
         $faq->setAnswer($faqData['answer']);
 
+        $question = $faq->getQuestion();
+        $answer = $faq->getAnswer();
+
         $query = "INSERT INTO faqs (question, answer) VALUES (?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ss", $faq->getQuestion(), $faq->getAnswer());
+        $stmt->bind_param("ss", $question, $answer);
         $stmt->execute();
         
         return $this->conn->insert_id;
@@ -40,26 +43,30 @@ class FAQ {
         $faq->setQuestion($faqData['question']);
         $faq->setAnswer($faqData['answer']);
         
+        $question = $faq->getQuestion();
+        $answer = $faq->getAnswer();
+        $id = $faq->getId();
+
         $query = "UPDATE faqs SET question = ?, answer = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssi", $faq->getQuestion(), $faq->getAnswer(), $faq->getId());
+        $stmt->bind_param("ssi", $question, $answer, $id);
         $stmt->execute();
         
-        return true;
+        return $stmt->affected_rows > 0;
     }
     
     public function delete($faqData) {
         $faq = new FAQSkeleton();
         $faq->setId($faqData['id']);
         
+        $id = $faq->getId();
+
         $query = "DELETE FROM faqs WHERE id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $faq->getId());
+        $stmt->bind_param("i", $id);
         $stmt->execute();
         
-        return true;
+        return $stmt->affected_rows > 0;
     }
-
-   
 }
 ?>

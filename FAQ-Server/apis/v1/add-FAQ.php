@@ -30,12 +30,8 @@ if(!isset($data['answer']) || empty($data['answer'])) {
     exit;
 }
 
-$faqData = array(
-    'question' => $data['question'],
-    'answer' => $data['answer']
-);
 
-$result = $faq->create($faqData);
+$result = $faq->create($data);
 
 if($result) {
     $response['status'] = true;
