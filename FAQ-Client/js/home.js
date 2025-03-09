@@ -92,11 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         faqListContainer.innerHTML = faqsHTML;
         
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                this.parentElement.classList.toggle('active');
-            });
-        });
+      
     }
     
     function searchFAQs(query) {
