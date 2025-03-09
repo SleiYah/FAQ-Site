@@ -55,7 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 questionInput.value = '';
                 answerInput.value = '';
                 
-               
+                const redirectAfterDelay = async () => {
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    window.location.replace('home.html');
+                };
+                
+                redirectAfterDelay();
             } else {
                 showMessage(response.data.message, 'error');
             }
