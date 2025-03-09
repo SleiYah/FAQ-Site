@@ -24,7 +24,8 @@ class FAQ {
     }
     
     public function read() {
-        $query = "SELECT * FROM faqs ORDER BY created_at DESC";
+        $this->conn->query("COMMIT");
+        $query = "SELECT SQL_NO_CACHE * FROM faqs ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
