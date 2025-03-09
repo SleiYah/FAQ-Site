@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: GET, OPTIONS, POST');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
    
-    $conn = new mysqli("localhost", "root", "", "faq");
+    $conn = new mysqli("localhost", "root", "S13iy@h02", "faq");
 
 
 if ($conn->connect_error) {
