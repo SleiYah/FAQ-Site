@@ -1,6 +1,5 @@
 
 
-// Modified home.js
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Home page loaded");
     const logoutBtn = document.getElementById('logout-button');
