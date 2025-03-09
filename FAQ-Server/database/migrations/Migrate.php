@@ -1,8 +1,8 @@
 <?php
 
 
-include("CreateUser.php");
-include("CreateFAQ.php");
+include_once("CreateUser.php");
+include_once("CreateFAQ.php");
 
 CreateUsersTable::users($conn);
 CreateFaqsTable::faqs($conn);

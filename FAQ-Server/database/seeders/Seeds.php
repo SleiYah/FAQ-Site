@@ -1,7 +1,7 @@
 <?php
 
-include("faq-seeds.php");
-include("user-seeds.php");
+include_once("faq-seeds.php");
+include_once("user-seeds.php");
 
 class Seeds {
     public static function seedAll($conn) {

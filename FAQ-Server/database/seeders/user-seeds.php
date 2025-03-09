@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."../../../models/User.php");
+include_once(__DIR__."../../../models/User.php");
 
 class SeedUsers {
     public static function seed($conn) {

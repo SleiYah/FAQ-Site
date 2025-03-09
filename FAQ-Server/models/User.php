@@ -1,5 +1,5 @@
 <?php
-include("UserSkeleton.php");
+include_once("UserSkeleton.php");
 
 class User {
     private $conn;
